@@ -21,4 +21,5 @@ def insert(item, quantity, price):
     conn.close()
 
 
-insert("water glass", 10, 5)
+# insert("water glass", 10, 5)
+insert("coffee cup", 10, 5)
