@@ -13,4 +13,8 @@ def create_table():
 
 
 def insert():
+    conn = sqlite3.connect("lite.db")
+    cur = conn.cursor()
     cur.execute("INSERT INTO store VALUES ('wine glass',8,10.5)")
+    conn.commit()
+    conn.close()
