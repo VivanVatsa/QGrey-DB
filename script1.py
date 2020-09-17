@@ -23,3 +23,17 @@ def insert(item, quantity, price):
 
 # insert("water glass", 10, 5)
 insert("coffee cup", 10, 5)
+
+
+def view():
+    conn = sqlite3.connect("lite.db")
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM store")
+    # SAVING ALL THE DATA SET TO BE FETCHED INTO A VARIABLE CALLED ROWS AS THEY ARE IN ROWS FUNNY
+    rows = cur.fetchall()
+    conn.close()
+    # we are just collecting/fetching data so no need of commit method
+    return rows
+
+
+print(view())
