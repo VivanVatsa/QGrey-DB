@@ -6,6 +6,7 @@ steps involved in a database interaction
 5. close the database connection
 
 -> its good to use capital keywords when performing SQL
+----------------------------------
 
 -> cur = conn.cursor() =  Create cursor objects to access rows & COLUMNS
 -> cur.execute(
