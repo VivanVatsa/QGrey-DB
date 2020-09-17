@@ -12,9 +12,13 @@ def create_table():
     conn.close()
 
 
-def insert():
+def insert(item, quantity, price):
     conn = sqlite3.connect("lite.db")
     cur = conn.cursor()
-    cur.execute("INSERT INTO store VALUES ('wine glass',8,10.5)")
+    # cur.execute("INSERT INTO store VALUES ('wine glass',8,10.5)")
+    cur.execute("INSERT INTO store VALUES (?,?,?)", (item, quantity, price))
     conn.commit()
     conn.close()
+
+
+insert("water glass", 10, 5)
