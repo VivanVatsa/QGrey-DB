@@ -22,8 +22,8 @@ def insert(item, quantity, price):
 
 
 # insert("water glass", 10, 5)
-insert("wine glass", 10, 5)
-insert("coffee cup", 10, 5)
+# insert("wine glass", 10, 5)
+# insert("coffee cup", 10, 5)
 
 
 def view():
@@ -37,6 +37,8 @@ def view():
     return rows
 
 
+# for deleting a record from the creating database
+
 def delete(item):
     conn = sqlite3.connect("lite.db")
     cur = conn.cursor()
@@ -47,6 +49,18 @@ def delete(item):
     conn.close()
     # return rows
 
+# another func to update the records in the database
 
+
+def update(quantity, price, item):
+    conn = sqlite3.connect("lite.db")
+    cur = conn.cursor()
+    cur.execute("UPDATE store SET quantity=?, price=? WHERE item=?",
+                (quantity, price, item))
+    conn.commit()
+    conn.close()
+
+
+update(11, 6, "water glass")
 # delete("coffee cup")
 print(view())
