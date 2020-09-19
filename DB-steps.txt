@@ -13,3 +13,8 @@ steps involved in a database interaction
     "CREATE TABLE IF NOT EXISTS store (item TEXT, quantity INTEGER, price REAL)") = THIS LINE CREATES AN EMPTY DATABASE
 -> conn.commit() = THIS IS COMMIT STAGE
 -> conn.close() = this is closing the connection of the DATABASE
+-----------------
+
+till creation of the data and init of the data has already happened
+now i will try to delete and update the data in sqlite3
+---------------------------------
