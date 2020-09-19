@@ -22,6 +22,7 @@ def insert(item, quantity, price):
 
 
 # insert("water glass", 10, 5)
+insert("wine glass", 10, 5)
 insert("coffee cup", 10, 5)
 
 
@@ -36,4 +37,16 @@ def view():
     return rows
 
 
+def delete(item):
+    conn = sqlite3.connect("lite.db")
+    cur = conn.cursor()
+    # cur.execute("SELECT * FROM store")
+    cur.execute("DELETE FROM store WHERE item=?", (item,))
+    # rows = cur.fetchall()
+    conn.commit()
+    conn.close()
+    # return rows
+
+
+# delete("coffee cup")
 print(view())
