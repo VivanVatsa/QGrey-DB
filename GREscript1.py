@@ -33,7 +33,8 @@ def insert(item, quantity, price):
 
 
 def view():
-    conn = psycopg2.connect("lite.db")
+    conn = psycopg2.connect(
+        "dbname='database1' user='postgres' password='Post_Gres@1234' host='localhost' port='5432'")
     cur = conn.cursor()
     cur.execute("SELECT * FROM store")
     # SAVING ALL THE DATA SET TO BE FETCHED INTO A VARIABLE CALLED ROWS AS THEY ARE IN ROWS FUNNY
@@ -69,7 +70,7 @@ def update(quantity, price, item):
 
 # update(11, 6, "water glass")
 # delete("coffee cup")
-# print(view())
 create_table()
 # insert("Apple", 10, 15)
 insert("Orange", 10, 15)
+print(view())
