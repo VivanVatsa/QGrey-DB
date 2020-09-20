@@ -62,9 +62,12 @@ def delete(item):
 
 
 def update(quantity, price, item):
-    conn = psycopg2.connect("lite.db")
+    conn = psycopg2.connect(
+        "dbname='database1' user='postgres' password='Post_Gres@1234' host='localhost' port='5432'")
     cur = conn.cursor()
-    cur.execute("UPDATE store SET quantity=?, price=? WHERE item=?",
+    # cur.execute("UPDATE store SET quantity=?, price=? WHERE item=?",
+    #             (quantity, price, item))
+    cur.execute("UPDATE store SET quantity=%s, price=%s WHERE item=%s",
                 (quantity, price, item))
     conn.commit()
     conn.close()
@@ -75,5 +78,6 @@ def update(quantity, price, item):
 create_table()
 # insert("Apple", 10, 15)
 # insert("Orange", 10, 15)
-delete("Orange")
+# delete("Orange")
+update(20, 15.0, 'Apple')
 print(view())
