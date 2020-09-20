@@ -20,8 +20,9 @@ def insert(item, quantity, price):
     cur = conn.cursor()
     # cur.execute("INSERT INTO store VALUES ('wine glass',8,10.5)")
     # cur.execute("INSERT INTO store VALUES (?,?,?)", (item, quantity, price))
-    cur.execute("INSERT INTO store VALUES('%s', '%s', '%s')" %
-                (item, quantity, price))
+    # cur.execute("INSERT INTO store VALUES('%s', '%s', '%s')" %
+    #             (item, quantity, price))
+    cur.execute("INSERT INTO store VALUES(%s,%s,%s)", (item, quantity, price))
     conn.commit()
     conn.close()
 
@@ -70,4 +71,5 @@ def update(quantity, price, item):
 # delete("coffee cup")
 # print(view())
 create_table()
-insert("Apple", 10, 15)
+# insert("Apple", 10, 15)
+insert("Orange", 10, 15)
