@@ -47,10 +47,12 @@ def view():
 # for deleting a record from the creating database
 
 def delete(item):
-    conn = psycopg2.connect("lite.db")
+    conn = psycopg2.connect(
+        "dbname='database1' user='postgres' password='Post_Gres@1234' host='localhost' port='5432'")
     cur = conn.cursor()
     # cur.execute("SELECT * FROM store")
-    cur.execute("DELETE FROM store WHERE item=?", (item,))
+    # cur.execute("DELETE FROM store WHERE item=?", (item,))
+    cur.execute("DELETE FROM store WHERE item=%s", (item,))
     # rows = cur.fetchall()
     conn.commit()
     conn.close()
@@ -72,5 +74,6 @@ def update(quantity, price, item):
 # delete("coffee cup")
 create_table()
 # insert("Apple", 10, 15)
-insert("Orange", 10, 15)
+# insert("Orange", 10, 15)
+delete("Orange")
 print(view())
