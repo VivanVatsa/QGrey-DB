@@ -20,7 +20,7 @@ def insert(item, quantity, price):
     cur = conn.cursor()
     # cur.execute("INSERT INTO store VALUES ('wine glass',8,10.5)")
     # cur.execute("INSERT INTO store VALUES (?,?,?)", (item, quantity, price))
-    cur.execute("INSERT INTO store VALUE('%s', '%s', '%s')" %
+    cur.execute("INSERT INTO store VALUES('%s', '%s', '%s')" %
                 (item, quantity, price))
     conn.commit()
     conn.close()
